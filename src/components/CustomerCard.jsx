@@ -2,7 +2,7 @@ import React from "react";
 
 const CustomerCard = ({ name, address }) => {
   return (
-    <div class="w-full m-2  max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class=" m-2  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div class="flex justify-end px-2 pt-2">
         <button
           id="dropdownButton"

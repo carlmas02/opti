@@ -735,7 +735,7 @@ const Transaction = ({
         <img
           src={logoSrc}
           alt={companyName}
-          className="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1"
+          className="inline-block relative object-center w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1"
         />
         <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">
           {companyName}
@@ -811,6 +811,42 @@ const Transaction = ({
 const Orders = () => {
   const [orders, setorders] = useState([]);
 
+  const [formData, setFormData] = useState({
+    customer: "",
+    product: "",
+    quantity: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    if (name == "quantity") {
+      setFormData({ ...formData, [name]: parseInt(value) });
+      return;
+    }
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Send the form data to your backend API
+    console.log(formData);
+    axios
+      .post("http://127.0.0.1:8000/place_order/", formData)
+      .then((response) => {
+        alert("Customer product added successfully");
+        // Optionally, you can reset the form fields after successful submission
+        setFormData({
+          customer: "",
+          product: "",
+          quantity: "",
+        });
+      })
+      .catch((error) => {
+        console.error("Error adding customer product:", error);
+      });
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -829,6 +865,56 @@ const Orders = () => {
       <h1 className="font-bold text-[#3339b4] font-serif p-2 text-center md:text-3xl sm:text-2xl text-lg md:py-6 sm:py-3">
         Orders
       </h1>
+
+      <h2>Add Customer Product</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="customer">Customer:</label>
+        <input
+          type="text"
+          id="customer"
+          name="customer"
+          value={formData.customer}
+          onChange={handleChange}
+          required
+        />
+        <br />
+        <br />
+
+        <label>
+          Product:
+          <select
+            id="product"
+            name="product"
+            value={formData.product}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Product</option>
+            <option value="IC Lock Cover">IC Lock Cover</option>
+            <option value="Security Metre Wire">Security Metre Wire</option>
+            <option value="Compression Spring">Compression Spring</option>
+            <option value="Torsion Spring">Torsion Spring</option>
+            <option value="Caplock">Caplock</option>
+            <option value="Debring">Debring</option>
+          </select>
+        </label>
+        <br />
+
+        <label htmlFor="quantity">Quantity:</label>
+        <input
+          type="number"
+          id="quantity"
+          name="quantity"
+          value={formData.quantity}
+          onChange={handleChange}
+          required
+        />
+        <br />
+        <br />
+
+        <button type="submit">Add Customer Product</button>
+      </form>
+
       <div className="p-6 overflow-scroll px-0  bg-white">
         <table className="  w min-w-max table-auto text-left">
           <thead>
