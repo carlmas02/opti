@@ -17,6 +17,7 @@ function ProductManufacturing() {
       .get("http://127.0.0.1:8000/manufacture/")
       .then((response) => {
         // Handle success
+        console.log(response.data);
         setProducts(response.data);
       })
       .catch((error) => {
@@ -27,7 +28,8 @@ function ProductManufacturing() {
 
   const addProduct = (newProduct) => {
     // Add new product to the state
-    setProducts([...products, newProduct]);
+    fetchProducts();
+    // setProducts([...products, newProduct]);
   };
 
   const handleStatusChange = (productId, newStatus) => {

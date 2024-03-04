@@ -23,6 +23,9 @@ function ProductForm({ onAddProduct }) {
       quantity: quantity,
     };
 
+    console.log(data);
+    // onAddProduct(data); // Notify parent component
+
     // Make POST request using Axios
     axios
       .post("http://127.0.0.1:8000/add_manufacture/", data)

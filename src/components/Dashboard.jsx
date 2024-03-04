@@ -9,6 +9,7 @@ import Customers from "./Dashboard/Customers";
 import Orders from "./Dashboard/Orders";
 import Home from "./Dashboard/Home";
 import ProductManufacturing from "./Manufacturing/ProductManufacturing";
+import RawMaterialsPurchase from "./RawMaterials/RawMaterialsPurchase";
 
 const Sidebar = ({ handleOptionClick }) => {
   return (
@@ -78,14 +79,14 @@ const Mainbar = ({ selectedOption }) => {
     <div className="flex-grow h-screen bg-gray-200">
       {selectedOption === "Home" && <Home />}
       {selectedOption === "Inventory" && <Cards />}
-      {selectedOption === "Raw Materials" && <RawMaterials />}
+      {selectedOption === "Raw Materials" && <RawMaterialsPurchase />}
       {/* {selectedOption === "Products" && <Products />} */}
       {selectedOption === "Products" && <ProductManufacturing />}
 
       {selectedOption === "Suppliers" && <Suppliers />}
       {selectedOption === "Customers" && <Customers />}
       {selectedOption === "Orders" && <Orders />}
-
+      {/* <RawMaterialsPurchase /> */}
       {/* Add other components or content here */}
     </div>
   );
