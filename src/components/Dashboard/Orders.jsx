@@ -852,6 +852,7 @@ const Orders = () => {
       try {
         const response = await axios.get("http://127.0.0.1:8000/list_orders/");
         setorders(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -861,33 +862,30 @@ const Orders = () => {
   }, []);
 
   return (
-    <div className="">
-      <h1 className="font-bold text-[#3339b4] font-serif p-2 text-center md:text-3xl sm:text-2xl text-lg md:py-6 sm:py-3">
+    <div className="px-5">
+      <h2 className="sm:text-xl   grid grid-col-2 text-[#3339b4] font-bold font-serif py-2 md:text-2xl text-lg">
         Orders
-      </h1>
+      </h2>
+      <div className="">
+        <form className="" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            id="customer"
+            name="customer"
+            value={formData.customer}
+            onChange={handleChange}
+            required
+            placeholder="Customer"
+            className="rounded-md  my-4 lg:w-96 bg-transparent font-medium  text-sm  shadow-inner shadow-slate-400 bg-opacity-25 flex w-full p-2"
+          />
 
-      <h2>Add Customer Product</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="customer">Customer:</label>
-        <input
-          type="text"
-          id="customer"
-          name="customer"
-          value={formData.customer}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <br />
-
-        <label>
-          Product:
           <select
             id="product"
             name="product"
             value={formData.product}
             onChange={handleChange}
             required
+            className="rounded-md  my-4 lg:w-96 bg-transparent font-medium  text-sm  shadow-inner shadow-slate-400 bg-opacity-25 flex w-full p-2"
           >
             <option value="">Select Product</option>
             <option value="IC Lock Cover">IC Lock Cover</option>
@@ -897,95 +895,118 @@ const Orders = () => {
             <option value="Caplock">Caplock</option>
             <option value="Debring">Debring</option>
           </select>
-        </label>
-        <br />
 
-        <label htmlFor="quantity">Quantity:</label>
-        <input
-          type="number"
-          id="quantity"
-          name="quantity"
-          value={formData.quantity}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <br />
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            value={formData.quantity}
+            onChange={handleChange}
+            required
+            placeholder="Quantity"
+            className="rounded-md mt-2 lg:w-96 bg-transparent font-medium  text-sm  shadow-inner shadow-slate-400 bg-opacity-25 flex w-full p-2"
+          />
 
-        <button type="submit">Add Customer Product</button>
-      </form>
+          <button
+            className="bg-[#3339b4] mt-4 text-white mx-auto w-auto justify-center hover:bg-[#0e188b] px-6 py-1 my-2  font-medium rounded-md"
+            type="submit"
+          >
+            Add Customer Product
+          </button>
+        </form>
+      </div>
 
-      <div className="p-6 overflow-scroll px-0  bg-white">
-        <table className="  w min-w-max table-auto text-left">
+      <div className="overflow-x-auto h-[65vh] overflow-scroll">
+        <table className="w-full bg-white border border-gray-200 shadow overflow-hidden sm:rounded-lg">
           <thead>
             <tr>
-              <th className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                <p className="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">
+              <th className="border border-gray-200 px-4 py-2">Customer </th>
+              <th className="border border-gray-200 px-4 py-2">Product </th>
+              <th className="border border-gray-200 px-4 py-2">Quantity </th>
+
+              <th className="border border-gray-200 px-4 py-2">Ordered Date</th>
+              <th className="border border-gray-200 px-4 py-2">Status</th>
+              <th className="border border-gray-200 px-4 py-2">Amount</th>
+              <th className="border border-gray-200 px-4 py-2">
+                Payment Status
+              </th>
+              <th className="border border-gray-200 px-4 py-2">
+                Delivery Date
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.entries(orders).map(([orderId, order], index) => (
+              <tr key={index}>
+                {Object.values(order).map((value, index) => (
+                  <td key={index} className="border border-gray-200 px-4 py-2">
+                    {value}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* <div className="p-2 mt-6  overflow-scroll  rounded-md bg-white ">
+        <table className=" table-auto  justify-center">
+          <thead>
+            <tr>
+              <th className="border-y border-x border-[#3339b4] bg-blue-gray-50/50 p-6 w-40">
+                <p className="block antialiased font-sans text-sm text-[#3339b4] font-semibold leading-none opacity-70">
                   Customer
                 </p>
               </th>
-              <th className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                <p className="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">
+              <th className="border-y border-[#3339b4] border-x bg-blue-gray-50/50 p-6 w-40">
+                <p className="block antialiased font-sans text-sm text-[#2f2f3e] font-semibold leading-none opacity-70">
                   Product
                 </p>
               </th>
-              <th className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                <p className="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">
+              <th className="border-y border-[#3339b4] border-x bg-blue-gray-50/50 p-6 w-40">
+                <p className="block antialiased font-sans text-sm text-[#d98448] font-semibold leading-none opacity-70">
                   Quantity
                 </p>
               </th>
-              <th className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                <p className="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">
+              <th className="border-y border-[#3339b4] border-x bg-blue-gray-50/50 p-6 w-40">
+                <p className="block antialiased font-sans text-sm text-[#d7d744] font-semibold leading-none opacity-70">
                   Ordered Date
                 </p>
               </th>
-              <th className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                <p className="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">
+              <th className="border-y border-[#3339b4] border-x bg-blue-gray-50/50 p-6 w-40">
+                <p className="block antialiased font-sans text-sm text-[#c64141] font-semibold leading-none opacity-70">
                   Delivered Date
                 </p>
               </th>
-              <th className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                <p className="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">
+              <th className="border-y border-[#3339b4] border-x bg-blue-gray-50/50 p-6 w-40">
+                <p className="block antialiased font-sans text-sm text-[#42c96f] font-semibold leading-none opacity-70">
                   Price
                 </p>
               </th>
-              <th className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                <p className="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">
+              <th className="border-y border-[#3339b4] border-x bg-blue-gray-50/50 p-6 w-40">
+                <p className="block antialiased font-sans text-sm text-[#8536a6] font-semibold leading-none opacity-70">
                   Payment Status
                 </p>
               </th>
-              <th className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                <p className="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">
+              <th className="border-y border-[#3339b4] border-x bg-blue-gray-50/50 p-6 w-40n">
+                <p className="block antialiased font-sans text-sm text-[#448ec8] font-semibold leading-none opacity-70">
                   Account status
                 </p>
-              </th>
-              <th className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                <p className="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70"></p>
               </th>
             </tr>
           </thead>
           <tbody>
             {Object.entries(orders).map(([_, order]) => (
               <Transaction
-                logoSrc="https://docs.material-tailwind.com/img/logos/logo-spotify.svg"
                 companyName={order.customer}
                 amount={order.amount}
                 date={order.delivered_date}
                 status={order.payment_status}
-                cardLogoSrc="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/logos/visa.png"
               />
             ))}
-            {/* <Transaction
-              logoSrc="https://docs.material-tailwind.com/img/logos/logo-spotify.svg"
-              companyName="Spotify"
-              amount="$2,500"
-              date="Wed 3:00pm"
-              status="paid"
-              cardLogoSrc="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/logos/visa.png"
-            /> */}
           </tbody>
         </table>
-      </div>
+      </div> */}
     </div>
   );
 };

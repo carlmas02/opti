@@ -47,7 +47,10 @@ function ProductManufacturing() {
   return (
     <div>
       <ProductForm onAddProduct={addProduct} />
-      <ProductTable products={products} onStatusChange={handleStatusChange} />
+
+      <div className="container max-h-[69vh] overflow-y-scroll">
+        <ProductTable products={products} onStatusChange={handleStatusChange} />
+      </div>
     </div>
   );
 }

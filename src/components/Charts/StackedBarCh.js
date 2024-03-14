@@ -33,7 +33,7 @@ const StackedBarChartComponent = ({ data }) => {
   return (
     <BarChart
       width={600}
-      height={300}
+      height={260}
       data={dataitems}
       barCategoryGap={5}
       style={{ background: "white" }}

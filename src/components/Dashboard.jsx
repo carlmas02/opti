@@ -10,6 +10,7 @@ import Orders from "./Dashboard/Orders";
 import Home from "./Dashboard/Home";
 import ProductManufacturing from "./Manufacturing/ProductManufacturing";
 import RawMaterialsPurchase from "./RawMaterials/RawMaterialsPurchase";
+import YearlyInsights from "./Dashboard/YearlyInsights";
 
 const Sidebar = ({ handleOptionClick }) => {
   return (
@@ -24,6 +25,12 @@ const Sidebar = ({ handleOptionClick }) => {
             onClick={() => handleOptionClick("Home")}
           >
             Home
+          </li>
+          <li
+            className="px-4 py-2 hover:bg-gray-700 cursor-pointer"
+            onClick={() => handleOptionClick("YearlyInsights")}
+          >
+            Yearly Insights
           </li>
           <li
             className="px-4 py-2 hover:bg-gray-700 cursor-pointer"
@@ -76,16 +83,17 @@ const Sidebar = ({ handleOptionClick }) => {
 
 const Mainbar = ({ selectedOption }) => {
   return (
-    <div className="flex-grow h-screen bg-gray-200">
+    <div className="flex-grow h-screen overflow-y-scroll bg-gray-200">
       {selectedOption === "Home" && <Home />}
       {selectedOption === "Inventory" && <Cards />}
       {selectedOption === "Raw Materials" && <RawMaterialsPurchase />}
       {/* {selectedOption === "Products" && <Products />} */}
       {selectedOption === "Products" && <ProductManufacturing />}
-
       {selectedOption === "Suppliers" && <Suppliers />}
       {selectedOption === "Customers" && <Customers />}
       {selectedOption === "Orders" && <Orders />}
+      {selectedOption === "YearlyInsights" && <YearlyInsights />}
+
       {/* <RawMaterialsPurchase /> */}
       {/* Add other components or content here */}
     </div>

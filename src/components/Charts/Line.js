@@ -12,6 +12,8 @@ import {
 const LineDataChart = ({ data }) => {
   const [dataitems, setData] = useState();
 
+  console.log(data);
+
   useEffect(() => {
     if (data) {
       const chartData = data
@@ -26,11 +28,10 @@ const LineDataChart = ({ data }) => {
     }
   }, [data]);
 
-  console.log(data);
   return (
     <LineChart
       width={600}
-      height={300}
+      height={260}
       data={dataitems}
       style={{ backgroundColor: "white" }}
     >

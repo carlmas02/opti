@@ -138,7 +138,7 @@ const Cards = () => {
         </div>
       </div>
       {/* row 2 */}
-      <div className="max-w-[1240px] mx-auto mt-16 grid md:grid-cols-2 gap-8">
+      {/* <div className="max-w-[1240px] mx-auto mt-16 grid md:grid-cols-2 gap-8">
         <div className="w-full bg-[#eff6ff] shadow-xl rounded-lg flex flex-col p-4 my-4 hover:scale-105 duration-300">
           <img
             className="w-28 mx-auto mt-[-3rem] bg-white"
@@ -177,9 +177,9 @@ const Cards = () => {
             View more
           </button>
         </div>
-      </div>
+      </div> */}
       {/* row 3 */}
-      <div className="max-w-[1240px] mt-16 mx-auto grid md:grid-cols-2 gap-8">
+      {/* <div className="max-w-[1240px] mt-16 mx-auto grid md:grid-cols-2 gap-8">
         <div className="w-full bg-[#eff6ff] shadow-xl rounded-lg flex flex-col p-4 my-4 hover:scale-105 duration-300">
           <img
             className=" w-28 mx-auto mt-[-3rem] bg-white"
@@ -215,7 +215,7 @@ const Cards = () => {
             View more
           </button>
         </div>
-      </div>{" "}
+      </div>{" "} */}
     </div>
   );
 };
