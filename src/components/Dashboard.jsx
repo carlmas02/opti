@@ -11,6 +11,7 @@ import Home from "./Dashboard/Home";
 import ProductManufacturing from "./Manufacturing/ProductManufacturing";
 import RawMaterialsPurchase from "./RawMaterials/RawMaterialsPurchase";
 import YearlyInsights from "./Dashboard/YearlyInsights";
+import Forcasting from "./Dashboard/Forcasting";
 
 const Sidebar = ({ handleOptionClick }) => {
   return (
@@ -31,6 +32,12 @@ const Sidebar = ({ handleOptionClick }) => {
             onClick={() => handleOptionClick("YearlyInsights")}
           >
             Yearly Insights
+          </li>
+          <li
+            className="px-4 py-2 hover:bg-gray-700 cursor-pointer"
+            onClick={() => handleOptionClick("Forcasting")}
+          >
+            Forecasting
           </li>
           <li
             className="px-4 py-2 hover:bg-gray-700 cursor-pointer"
@@ -93,8 +100,10 @@ const Mainbar = ({ selectedOption }) => {
       {selectedOption === "Customers" && <Customers />}
       {selectedOption === "Orders" && <Orders />}
       {selectedOption === "YearlyInsights" && <YearlyInsights />}
+      {selectedOption === "Forcasting" && <Forcasting />}
 
       {/* <RawMaterialsPurchase /> */}
+
       {/* Add other components or content here */}
     </div>
   );

@@ -72,13 +72,16 @@ const TableRow = ({ data }) => {
 
 const Table = ({ data }) => {
   return (
-    <table className="table-auto w-full ">
-      <tbody>
-        {data &&
-          Object.keys(data).map((key) => (
-            <TableRow key={key} data={data[key]} />
-          ))}
-      </tbody>
-    </table>
+    <>
+      <h1></h1>
+      <table className="table-auto w-full ">
+        <tbody>
+          {data &&
+            Object.keys(data).map((key) => (
+              <TableRow key={key} data={data[key]} />
+            ))}
+        </tbody>
+      </table>
+    </>
   );
 };
