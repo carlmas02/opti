@@ -57,12 +57,12 @@ const Sidebar = ({ handleOptionClick }) => {
           >
             Suppliers
           </li>
-          <li
+          {/* <li
             className="px-4 py-2 hover:bg-gray-700 cursor-pointer"
             onClick={() => handleOptionClick("Warehouse")}
           >
             Warehouse
-          </li>
+          </li> */}
           <li
             className="px-4 py-2 hover:bg-gray-700 cursor-pointer"
             onClick={() => handleOptionClick("Inventory")}

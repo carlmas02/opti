@@ -42,15 +42,6 @@ const Cards = () => {
             {products.Debring}
             <span className="text-xl"> units</span>
           </p>
-
-          <div className="text-center font-medium">
-            <p className="py-2 border-b mx-8 mt-4">500 GB Storage</p>
-            <p className="py-2 border-b mx-8">1 Granted User</p>
-            <p className="py-2 border-b mx-8">Send upto 2GB</p>
-          </div>
-          <button className="bg-[#3339b4] text-white mx-auto   items-center hover:bg-[#0e188b] w-[150px] px-6 py-1 my-2  font-medium rounded-md">
-            View more
-          </button>
         </div>
 
         <div className="w-full bg-[#eff6ff] shadow-xl rounded-lg flex flex-col p-4 my-4 hover:scale-105 duration-300">
@@ -64,14 +55,6 @@ const Cards = () => {
             {products.Caplock}
             <span className="text-xl"> units</span>
           </p>
-          <div className="text-center font-medium">
-            <p className="py-2 border-b mx-8 mt-4">500 GB Storage</p>
-            <p className="py-2 border-b mx-8">1 Granted User</p>
-            <p className="py-2 border-b mx-8">Send upto 2GB</p>
-          </div>
-          <button className="bg-[#3339b4] text-white mx-auto  items-center hover:bg-[#0e188b] w-[150px] px-6 py-1 my-2  font-medium rounded-md">
-            View more
-          </button>
         </div>
 
         <div className="w-full bg-[#eff6ff] shadow-xl rounded-lg flex flex-col p-4 my-4 hover:scale-105 duration-300">
@@ -85,14 +68,6 @@ const Cards = () => {
             {products["Torsion Spring"]}
             <span className="text-xl"> units</span>
           </p>
-          <div className="text-center font-medium">
-            <p className="py-2 border-b mx-8 mt-4">500 GB Storage</p>
-            <p className="py-2 border-b mx-8">1 Granted User</p>
-            <p className="py-2 border-b mx-8">Send upto 2GB</p>
-          </div>
-          <button className="bg-[#3339b4] text-white mx-auto  items-center hover:bg-[#0e188b] w-[150px] px-6 py-1 my-2  font-medium rounded-md">
-            View more
-          </button>
         </div>
 
         <div className="w-full bg-[#eff6ff] shadow-xl rounded-lg flex flex-col p-4 my-4 hover:scale-105 duration-300">
@@ -106,14 +81,6 @@ const Cards = () => {
             {products["Compression Spring"]}
             <span className="text-xl"> units</span>
           </p>
-          <div className="text-center font-medium">
-            <p className="py-2 border-b mx-8 mt-4">500 GB Storage</p>
-            <p className="py-2 border-b mx-8">1 Granted User</p>
-            <p className="py-2 border-b mx-8">Send upto 2GB</p>
-          </div>
-          <button className="bg-[#3339b4] text-white mx-auto  items-center hover:bg-[#0e188b] w-[150px] px-6 py-1 my-2  font-medium rounded-md">
-            View more
-          </button>
         </div>
 
         <div className="w-full bg-[#eff6ff] shadow-xl rounded-lg flex flex-col p-4 my-4 hover:scale-105 duration-300">
@@ -127,14 +94,6 @@ const Cards = () => {
             {products["Security Metre Wire"]}
             <span className="text-xl"> units</span>
           </p>
-          <div className="text-center font-medium">
-            <p className="py-2 border-b mx-8 mt-4">500 GB Storage</p>
-            <p className="py-2 border-b mx-8">1 Granted User</p>
-            <p className="py-2 border-b mx-8">Send upto 2GB</p>
-          </div>
-          <button className="bg-[#3339b4] text-white mx-auto  items-center hover:bg-[#0e188b] w-[150px] px-6 py-1 my-2  font-medium rounded-md">
-            View more
-          </button>
         </div>
       </div>
       {/* row 2 */}
